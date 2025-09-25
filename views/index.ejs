@@ -48,7 +48,6 @@
                 </select>
               </div>
             </div>
-
           <div class="card-details">
             <p class="text-body">
             <% if (locals.data) { %>
@@ -65,13 +64,29 @@
       </form>
 
 
-        <!-- From Uiverse.io by alexruix --> 
-        <div class="card col-3 mx-2   ">
-            <p class="text-title">Card title</p>
-          <div class="card-details">
-            <p class="text-body">Here are the details of the card</p>
-          </div>
-          <button class="card-button">More info</button>
+        <!-- WEATHER API CARD --> 
+        <div class="card col-3 mx-2">
+          <form action="/weather" method="post" class="d-flex flex-column h-100">
+            <p class="text-title">WEATHER</p>
+
+            <div class="d-flex justify-content-around mb-3">
+              <input type="text" class="form-control" placeholder="CITY NAME" name="name" required>
+              <input type="text" class="form-control ms-2" placeholder="COUNTRY CODE" name="code" required>
+            </div>
+          
+            <div class="d-flex align-items-center justify-content-center flex-grow-1">
+              <% if (locals.picture) { %>
+                <img src="<%= picture %>" alt="weather icon">
+                <% if (locals.stat) { %>
+                  <p class="fs-3"><%= stat %></p>
+                <% } %>
+              <% } else { %>
+                <p class="fs-3">TRIAL Ends on 09/Oct/2025</p>
+              <% } %>
+            </div>
+          
+            <button class="card-button mt-auto">Weather Status</button>
+          </form>
         </div>
 
         <!-- From Uiverse.io by alexruix --> 
